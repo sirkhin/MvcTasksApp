@@ -1,0 +1,23 @@
+﻿@model MvcTasks.DomainModel.Entities.Task
+
+@{
+    AjaxOptions ajaxOpts = new AjaxOptions 
+    {
+        UpdateTargetId = "item",
+        Url = Url.Action("DetailedTask")
+    };
+}
+
+<script type="text/javascript">
+$(".item").click(function(){ 
+    window.location=$(this).find("a").attr("href"); 
+    return false; 
+}); 
+</script>
+
+<div class="item">
+    @*<h3>@Model.Name</h3>
+    @Model.Description
+    <h4>@Model.TaskStatus.Description</h4>*@
+    <a href="@Url.Action("DetailedTask", "Home", new {taskID = @Model.TaskID })"><h2>@Model.Name</h2></a> 
+</div>

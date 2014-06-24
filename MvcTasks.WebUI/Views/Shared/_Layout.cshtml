@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>@ViewBag.Title</title>
+  <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
+  <script src="~/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+  <script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="header">
+    <h1>TASKS</h1>
+        @if (Request.IsAuthenticated)
+        {
+            <strong>@Html.Encode(User.Identity.Name)</strong>
+            @Html.ActionLink("Log Out", "Logout", "User")
+            <span> | </span>
+            @Html.ActionLink("Profile", "Index", "User", new { uniqueName = User.Identity.Name }, new object { })
+        }
+        else
+        {
+            @Html.ActionLink("Register", "Register", "User")
+            <span> | </span>
+            @Html.ActionLink("Log In", "Login", "User")
+        }
+    </div>
+    <div class="categories">
+        @{Html.RenderAction("Menu", "Nav");}
+    </div>
+    <div class="footer">
+    </div>
+  <div class="content">
+		@RenderBody()
+  </div> 
+  <div id="right_section">
+ 
+    </div>
+  <footer>
+    <h1>THIS IS THE FOOTER</h1>
+  </footer> 
+</body>
+
+</html>

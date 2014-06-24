@@ -1,0 +1,77 @@
+﻿@model MvcTasks.DomainModel.Entities.Task
+
+@using (Html.BeginForm("DetailedTask", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+<div id="right_section">
+    <div id="right-section-detailed-task">
+        <p><h1> DETAILED TASK INFO</h1></p>
+        
+        <table width="600" cellspacing="5">
+          <col width="150" valign="top"/>
+          <col width="450" valign="top"/>
+          <tr>
+            <td>
+                <h3>Task Name:</h3>
+            </td>
+            <td align="right">
+                @Html.TextBoxFor(model => model.Name)
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <h3>Description:</h3>
+            </td>
+            <td align="right">
+                @Html.TextAreaFor(model => model.Description)
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <h3>Category:</h3>
+            </td>
+            <td align="right">
+                @Html.TextBoxFor(model => model.Category)
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <h3>Start Date::</h3>
+            </td>
+            <td align="right">
+                @Html.TextBoxFor(model => model.StartDate)
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <h3>End Date:</h3>
+            </td>
+            <td align="right">
+                @Html.TextBoxFor(model => model.EndDate)
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <h3>Status:</h3>
+            </td>
+            <td align="right">
+                @Html.TextBoxFor(model => model.TaskStatus.Description)
+            </td>
+          </tr>
+        </table>
+    </div>
+    
+    <div id="action-buttons">
+    @Html.Label("Assign to: ", new { @class = "model" })
+    @{ List<SelectListItem> listItems = new List<SelectListItem>();
+       foreach (var item in ViewBag.UserNames)
+       {
+           listItems.Add(new SelectListItem { Text = item, Value = item });
+       }
+            
+    }
+    @Html.DropDownList("dropDownItems", listItems, "", new {@class = "item"})
+    </div>
+
+    @*<input type="submit" value="Save" /> *@
+</div>
+    }

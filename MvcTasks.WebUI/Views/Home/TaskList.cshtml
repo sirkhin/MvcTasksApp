@@ -1,0 +1,29 @@
+﻿@model MvcTasks.WebUI.Models.TasksListViewModel
+
+@{
+    ViewBag.Title = "Tasks";
+}
+
+<script type="text/javascript">
+    $(".item").click(function () {
+        window.location = $(this).find("a").attr("href");
+        return false;
+    }); 
+</script>
+
+@foreach (var p in Model.Tasks)
+{
+    //Html.RenderPartial("TaskSummary", p);
+    <div class="item">
+    @Ajax.ActionLink(p.Name, "TaskList", new { category = (string)null, page = 1},
+          new AjaxOptions
+          {
+              UpdateTargetId = "right_section",
+              Url = Url.Action("DetailedTask", new { taskID = p.TaskID }),
+          })
+  </div>
+}
+
+<div class="pager"> 
+   @MvcTasks.WebUI.HtmlHelpers.PagingHelpers.PageLinks(Html, Model.PagingInfo, x => Url.Action("TaskList", new { page = x, category = Model.CurrentCategory})) 
+</div> 

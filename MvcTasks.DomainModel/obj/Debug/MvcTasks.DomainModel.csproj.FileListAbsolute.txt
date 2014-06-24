@@ -1,0 +1,9 @@
+C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.DomainModel\bin\Debug\MvcTasks.DomainModel.dll.config
+C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.DomainModel\bin\Debug\MvcTasks.DomainModel.dll
+C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.DomainModel\bin\Debug\MvcTasks.DomainModel.pdb
+C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.DomainModel\bin\Debug\EntityFramework.dll
+C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.DomainModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.DomainModel\bin\Debug\EntityFramework.xml
+C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.DomainModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.DomainModel\obj\Debug\MvcTasks.DomainModel.dll
+C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.DomainModel\obj\Debug\MvcTasks.DomainModel.pdb

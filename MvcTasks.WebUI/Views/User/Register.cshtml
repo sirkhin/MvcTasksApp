@@ -1,0 +1,48 @@
+﻿@model MvcTasks.DomainModel.Entities.User
+
+@{
+    Layout = null;
+}
+
+<h2>Register</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Registeration Failed, fields.");
+    <div>
+        <fieldset>
+            <legend>Register Form</legend>
+            <div class="editor-label">@Html.LabelFor(u => u.Email)</div>
+            <div class="editor-field">@Html.TextBoxFor(u => u.Email)
+                @Html.ValidationMessageFor(u => u.Email)
+            </div>
+            <div class="editor-label">@Html.LabelFor(u => u.Password)</div>
+            <div class="editor-field">@Html.PasswordFor(u => u.Password)
+                @Html.ValidationMessageFor(u => u.Password)
+            </div>
+            <div class="editor-label">@Html.LabelFor(u => u.Name)</div>
+            <div class="editor-field">@Html.TextBoxFor(u => u.Name)
+                @Html.ValidationMessageFor(u => u.Name)
+            </div>
+             <div class="editor-label">@Html.LabelFor(u => u.Surname)</div>
+            <div class="editor-field">@Html.TextBoxFor(u => u.Surname)
+                @Html.ValidationMessageFor(u => u.Surname)
+            </div>
+            <div class="editor-label">@Html.LabelFor(u => u.Address)</div>
+            <div class="editor-field">@Html.TextBoxFor(u => u.Address)
+                @Html.ValidationMessageFor(u => u.Address)
+            </div>
+            <div class="editor-label">@Html.LabelFor(u => u.PhoneNumber)</div>
+            <div class="editor-field">@Html.TextBoxFor(u => u.PhoneNumber)
+                @Html.ValidationMessageFor(u => u.PhoneNumber)
+            </div>
+
+            <div class="editor-label">Image</div>
+            <div class="editor-field">
+            <div>Upload new image:
+                <input type="file" name="Image" /></div>
+            </div>
+ 
+            <input type="submit" value="Register" />
+        </fieldset>
+    </div>
+}

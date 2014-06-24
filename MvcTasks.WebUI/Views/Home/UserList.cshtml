@@ -1,0 +1,30 @@
+﻿@model MvcTasks.WebUI.Models.UsersListViewModel
+
+<!DOCTYPE html>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <h1>User List</h1>
+</head>
+<body>
+    <div>
+        @foreach (var user in Model.Users)
+        {
+            <div class="item">
+    <h3>@user.Name</h3>
+    <h2>@user.Surname</h2>
+    <h4>@user.Address</h4>
+  </div>
+        }
+    </div>
+</body>
+</html>
+
+<div class="pager"> 
+   @MvcTasks.WebUI.HtmlHelpers.PagingHelpers.PageLinks(Html, Model.PagingInfo, x => Url.Action("UserList", new { page = x})) 
+</div> 

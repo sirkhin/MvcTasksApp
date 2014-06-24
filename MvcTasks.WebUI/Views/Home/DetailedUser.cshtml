@@ -1,0 +1,75 @@
+﻿@model MvcTasks.DomainModel.Entities.User
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.ImageData != null)
+    { 
+        <div style="float:left;margin-right:20px"> 
+            <img width="75" height="75" src="@Url.Action("GetImage", "Product", new { Model.UserID })" /> 
+        </div>
+    }
+
+<div id="right_section">
+    <div id="right-section-detailed-task">
+        <p><h1> DETAILED USER INFO</h1></p>
+        
+        <table width="600" cellspacing="5">
+          <col width="150" valign="top"/>
+          <col width="450" valign="top"/>
+          <tr>
+            <td>
+                <h3>Name:</h3>
+            </td>
+            <td align="right">
+                @Html.TextBox("Name", Model.Name + ", " + Model.Surname)
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <h3>Address:</h3>
+            </td>
+            <td align="right">
+                @Html.TextAreaFor(model => model.Address)
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <h3>Phone Number:</h3>
+            </td>
+            <td align="right">
+                @Html.TextBoxFor(model => model.PhoneNumber)
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <h3>Email:</h3>
+            </td>
+            <td align="right">
+                @Html.TextBoxFor(model => model.Email)
+            </td>
+          </tr>
+        </table>
+    </div>
+
+    <div id="action-buttons">
+    @*@Html.Label("Assign to: ", new { @class = "model" })
+    @{ List<SelectListItem> listItems = new List<SelectListItem>();
+       foreach (var item in ViewBag.UserNames)
+       {
+           listItems.Add(new SelectListItem { Text = item, Value = item });
+       }
+            
+    }
+    @Html.DropDownList("dropDownItems", listItems, "", new {@class = "item"})*@
+    </div>
+</div>
+
+    <ul>
+        @foreach (var task in ViewBag.Tasks)
+        {
+            <li>@task.Name</li>
+            <li>@task.Description</li>
+        } 
+    </ul>

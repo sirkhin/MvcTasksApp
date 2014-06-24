@@ -1,0 +1,22 @@
+﻿@model MvcTasks.DomainModel.Entities.User
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content">
+<h2>Index</h2>
+    <div class="editor-label">Image</div>
+  <div class="editor-field">
+    @if (Model.ImageData == null) {
+      @:None
+    }
+    else {
+      <img width="150" height="150" src="@Url.Action("GetImage", "User", new { Model.UserID })" />
+    }
+    <div>Upload new image:
+      <input type="file" name="Image" /></div>
+  </div>
+
+    @Html.EditorForModel()
+    </div>

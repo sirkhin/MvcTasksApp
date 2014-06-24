@@ -1,0 +1,205 @@
+﻿body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.BODY { font-family: Cambria, Georgia, "Times New Roman"; margin: 0; }
+
+.content { border-left: 2px solid gray; margin-left: 9em; padding: 1em; }
+
+.header
+{
+    display: block;
+    border-bottom: 6px solid #233;
+    height: 90px;
+}
+
+.pager
+{
+    text-align: left; 
+    border-top: 2px solid silver;
+    padding: .5em 0 0 0; 
+    margin-top: 1em;
+}
+
+.pager a
+{
+    font-size: 1.1em; 
+    color: #666; 
+    text-decoration: none;
+    padding: 0 .4em 0 .4em;
+}
+
+.pager a.selected
+{
+    background-color: #353535; color: White;
+}
+
+.pager a:hover
+{
+    background-color: Silver;
+}
+
+.categories
+{
+    float: left; width: 8em; padding: .3em;
+}
+
+.categories a
+{
+    font: bold 1.1em "Arial Narrow","Franklin Gothic Medium",Arial;
+    display: block; 
+    text-decoration: none; padding: .6em; color: Black; 
+    border-bottom: 1px solid silver;
+}
+
+.categories a.selected
+{
+    background-color: #666; color: White;
+}
+
+.categories a:hover
+{
+    background-color: #CCC;
+}
+
+.categories a.selected: hover
+{
+    background-color: #666;
+}
+
+.content
+{
+    border-left: 2px solid gray; margin-left: 9em; padding: 1em;
+    position:absolute;
+    width: 30%;
+}
+
+#right_section
+{
+    width: 60%;
+    height: 80%;
+    top: auto;
+    position: fixed;
+    right: 0;
+}
+
+#right-section-detailed-task
+{
+    font-family: Cambria, Georgia, "Times New Roman";
+    margin-left: 9em;
+    margin-top: 5em;
+}
+
+#right-section-detailed-task .p
+{
+    margin-top: 10em;
+}
+   
+footer
+{
+    position: absolute; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    border-top: 6px solid black;
+    
+}
+
+.item { border-top: 1px dotted gray; padding-top: .7em; margin-bottom: .7em; }
+.item:first-child { border-top:none; padding-top: 0; }
+.item H3 { font-size: 1.3em; margin: 0 0 .25em 0; }
+.item H4 { font-size: 1.1em; margin:.4em 0 0 0; }
+.item: hover { background-color: Black; }
+.item a { font-size: large; color: Black; text-decoration: none;}
+.item a:hover { background-color: Gray; }
+.item .p {margin-top: 10em;}
+
+.ajaxLink { border-top: 1px dotted gray; margin-top: 10px;margin-right: 5px;float: left;}
+
+#action-buttons
+{
+    font-family: Cambria, Georgia, "Times New Roman";
+    margin-left: 9em;
+}
+
+.model
+{
+    font-family: Cambria, Georgia, "Times New Roman";
+    text-align: Left;
+}
+
+#right-section-detailed-model
+{
+    right: 0;
+    width: 140px;
+    float: left;
+}
+
+/*td{
+   margin:0 10px;
+}
+td:first-child{
+   margin-left:0px;
+}
+td:last-child
+{
+   margin-right:0px;
+}
