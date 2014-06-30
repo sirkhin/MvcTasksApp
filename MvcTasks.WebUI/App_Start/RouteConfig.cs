@@ -43,7 +43,7 @@ namespace MvcTasks.WebUI
             );
 
             routes.MapRoute(null,
-              "{category}",
+              "{name}",
               new { controller = "User", action = "Index", uniqueName = (string)null}
             );
 

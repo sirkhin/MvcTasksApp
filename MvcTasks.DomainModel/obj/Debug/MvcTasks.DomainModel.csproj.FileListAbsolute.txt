@@ -7,3 +7,4 @@ C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.Dom
 C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.DomainModel\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.DomainModel\obj\Debug\MvcTasks.DomainModel.dll
 C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.DomainModel\obj\Debug\MvcTasks.DomainModel.pdb
+C:\Users\slavairkhin\documents\visual studio 2010\Projects\MvcTasks\MvcTasks.DomainModel\obj\Debug\MvcTasks.DomainModel.csprojResolveAssemblyReference.cache

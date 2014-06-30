@@ -1,0 +1,221 @@
+﻿@model IEnumerable<MvcTasks.DomainModel.Entities.User>
+
+<!DOCTYPE html>
+
+@*@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <h1>User List</h1>
+</head>
+<body>
+    <div>
+        @foreach (var user in Model.Users)
+        {
+            <div class="item">
+    <h3>@user.Name</h3>
+    <h2>@user.Surname</h2>
+    <h4>@user.Address</h4>
+  </div>
+        }
+    </div>
+</body>
+</html>
+
+ *@
+
+@{
+ ViewBag.Title = "Index";
+}
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<script>
+    $(document).ready(function () {
+        var url = "";
+        $("#dialog-alert").dialog({
+            autoOpen: false,
+            resizable: false,
+            height: 170,
+            width: 350,
+            show: { effect: 'drop', direction: "up" },
+            modal: true,
+            draggable: true,
+            open: function (event, ui) {
+                $(".ui-dialog-titlebar-close").hide();
+            },
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+
+                },
+                "Cancel": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        if ('@TempData["msg"]' != "") {
+            $("#dialog-alert").dialog('open');
+        }
+
+        $("#dialog-edit").dialog({
+            title: 'Create User',
+            autoOpen: false,
+            resizable: false,
+            width: 400,
+            show: { effect: 'drop', direction: "up" },
+            modal: true,
+            draggable: true,
+            open: function (event, ui) {
+                $(".ui-dialog-titlebar-close").hide();
+                $(this).load(url);
+            }
+        });
+
+        $("#dialog-confirm").dialog({
+            autoOpen: false,
+            resizable: false,
+            height: 170,
+            width: 350,
+            show: { effect: 'drop', direction: "up" },
+            modal: true,
+            draggable: true,
+            open: function (event, ui) {
+                $(".ui-dialog-titlebar-close").hide();
+
+            },
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    window.location.href = url;
+                },
+                "Cancel": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        $("#dialog-detail").dialog({
+            title: 'View User',
+            autoOpen: false,
+            resizable: false,
+            width: 400,
+            show: { effect: 'drop', direction: "up" },
+            modal: true,
+            draggable: true,
+            open: function (event, ui) {
+                $(".ui-dialog-titlebar-close").hide();
+                $(this).load(url);
+            },
+            buttons: {
+                "Close": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        $("#lnkCreate").live("click", function (e) {
+            //e.preventDefault(); //use this or return false
+            url = $(this).attr('href');
+            $("#dialog-edit").dialog('open');
+
+            return false;
+        });
+
+        $(".lnkEdit").live("click", function (e) {
+            // e.preventDefault(); use this or return false
+            url = $(this).attr('href');
+            $(".ui-dialog-title").html("Update User");
+            $("#dialog-edit").dialog('open');
+
+            return false;
+        });
+
+        $(".lnkDelete").live("click", function (e) {
+            // e.preventDefault(); use this or return false
+            url = $(this).attr('href');
+            $("#dialog-confirm").dialog('open');
+
+            return false;
+        });
+
+        $(".lnkDetail").live("click", function (e) {
+            // e.preventDefault(); use this or return false
+            url = $(this).attr('href');
+            $("#dialog-detail").dialog('open');
+
+            return false;
+        });
+
+        $("#btncancel").live("click", function (e) {
+            $("#dialog-edit").dialog("close");
+            return false;
+        });
+    });
+</script>
+
+<div id="dialog-alert" style="display: none">
+ <p>
+ @TempData["msg"]!
+ </p>
+</div>
+ 
+<div id="dialog-confirm" style="display: none">
+ <p>
+ <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
+ Are you sure to delete?
+ </p>
+</div>
+ 
+<div id="dialog-edit" style="display: none">
+</div>
+<div id="dialog-detail" style="display: none">
+</div>
+ 
+<h2>Users List</h2>
+ 
+<p>
+ @Html.ActionLink("Create New", "Create", null, new { id = "lnkCreate" })
+</p>
+<table>
+ <tr>
+ <th>
+ @Html.DisplayNameFor(model => model.Name)
+ </th>
+ <th>
+ @Html.DisplayNameFor(model => model.Surname)
+ </th>
+ <th>
+ @Html.DisplayNameFor(model => model.Address)
+ </th>
+ </tr>
+ 
+ @foreach (var item in Model)
+ {
+ <tr>
+ <td>
+ @Html.DisplayFor(modelItem => item.Name)
+ </td>
+ <td>
+ @Html.DisplayFor(modelItem => item.Surname)
+ </td>
+ <td>
+ @Html.DisplayFor(modelItem => item.Address)
+ </td>
+ <td>
+ @Html.ActionLink("Edit", "Edit", new { id = item.UserID }, new { @class = "lnkEdit" }) |
+ @Html.ActionLink("Details", "Details", new { id = item.UserID }, new { @class = "lnkDetail" }) |
+ @Html.ActionLink("Delete", "Delete", new { id = item.UserID }, new { @class = "lnkDelete" })
+ </td>
+ </tr>
+ }
+ 
+</table>
+
+@*<div class="pager"> 
+   @MvcTasks.WebUI.HtmlHelpers.PagingHelpers.PageLinks(Html, Model.PagingInfo, x => Url.Action("UserList", new { page = x})) 
+</div>*@

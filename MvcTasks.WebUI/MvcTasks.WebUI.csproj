@@ -142,8 +142,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HtmlHelpers\PagingHelpers.cs" />
-    <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
+    <Compile Include="Infrastructure\PagingHelpers.cs" />
+    <Compile Include="HtmlHelpers\NinjectControllerFactory.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\TasksListViewModel.cs" />
     <Compile Include="Models\UsersListViewModel.cs" />
@@ -253,7 +253,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\UserList.cshtml" />
+    <Content Include="Views\User\UserList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\TaskList.cshtml" />
@@ -268,7 +268,7 @@
     <Content Include="Views\Home\DetailedTask.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\DetailedUser.cshtml" />
+    <Content Include="Views\User\DetailedUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\User\Register.cshtml" />
@@ -278,6 +278,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\User\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

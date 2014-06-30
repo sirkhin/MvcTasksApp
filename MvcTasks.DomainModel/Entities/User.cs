@@ -30,8 +30,10 @@ namespace MvcTasks.DomainModel.Entities
 
         [Required(ErrorMessage = "Please enter a password")]
         [DataType(DataType.Password)]
+        [HiddenInput(DisplayValue = false)]
         public string Password { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
         public string PasswordSalt { get; set; }
     }
 }

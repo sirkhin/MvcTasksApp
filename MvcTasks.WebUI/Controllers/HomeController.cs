@@ -16,7 +16,6 @@ namespace MvcTasks.WebUI.Controllers
         private ITasksRepository _tasksRepository;
         private IUsersTasksRepository _usersTasksRepository;
         private int _taskPageSize = 7;
-        private int _userPageSize = 3;
 
         public HomeController(IUsersRepository usersRepository, ITasksRepository tasksRepository, IUsersTasksRepository usersTasksRepository)
         {
@@ -28,24 +27,6 @@ namespace MvcTasks.WebUI.Controllers
         public ActionResult Index()
         {
             return View();
-        }
-
-        public ActionResult UserList(int page = 1)
-        {
-            UsersListViewModel usersModel = new UsersListViewModel
-            {
-                Users = _usersRepository.Users
-                .OrderBy(p => p.UserID)
-                .Skip((page - 1) * _userPageSize)
-                .Take(_userPageSize),
-                PagingInfo = new PagingInfo
-                {
-                    CurrentPage = page,
-                    ItemsPerPage = _userPageSize,
-                    TotalItems = _usersRepository.Users.Count()
-                },
-            };
-            return View(usersModel);
         }
 
         public ActionResult TaskList(string category = null, int page = 1)
@@ -96,26 +77,6 @@ namespace MvcTasks.WebUI.Controllers
         public ActionResult DetailedTask(Task task, string userName)
         {
             return View();
-        }
-
-        public ActionResult DetailedUser(int userID = 1)
-        {
-            UsersListViewModel userModel = new UsersListViewModel
-            {
-                Users = _usersRepository.Users
-                .Where(p => p.UserID == userID)
-            };
-            User user = (User)userModel.Users.FirstOrDefault();
-
-            List<Task> tasks = new List<Task>();
-
-            foreach (var task in _tasksRepository.Tasks)
-            {
-                tasks.Add(task);
-            }
-
-            ViewBag.Tasks = tasks;
-            return PartialView(user);
         }
 
     }
